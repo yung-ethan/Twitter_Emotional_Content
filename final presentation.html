@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html> <font face= Calibri> <font color= "white">
+<head>
+
+<!-- If you would like to use cascading stylesheet place these in a separate
+   file and include the following link to them -->
+<link href="report.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body style="background-image:url(https://googledrive.com/host/0B9RVX9VwMYFzd3dWc1NhTWhTbHc/twitter.jpg)">
+
+<div class="section">
+<h1 class="section"> 
+<center> Emotional Contents in Tweets </center> </h1><h4 align="right"> GROUP MEMBERS <br/>
+Wonjohn Choi<br/>Brenna Gomer<br/>Hye Soo Cho<br/>Yekun Wang<br/>Ethan Yung<br/> </h4>
+
+
+<p>
+<h2> Introduction</h2>
+Some lifestyle choices unique to the Millennial Generation are habitual attachment to mobile devices and constant streaming of social media. Such a lifestyle shows a drastic change in modes of emotional expression and regard for privacy. To explore this phenomemon, we analyzed the quality and quantity of emotions expressed via tweets. We primarily were interested in Twitter emotion content time trends and the effects of news events, if applicable. We collected Twitter posts from Nov. 25 2013 8p.m to Dec. 3. 2013 9p.m (including Thanksgiving). 
+Our Questions of Interest: <br/>
+1) What is the general weekly and daily time trend of tweet sentiment? <br/>
+2) Does tweet emotion content differ on holidays? <br/>
+3) Are emotional tweets posted on holidays mostly positive or negative? <br/>
+4) What are the reasons for unexpected changes in emotional trends on Twitter? <br/>
+5) What is the proportion of positively valenced tweets,negatively valenced tweets, and mixed valenced tweets? <br/>
+6) Where are tweets coming from and how does the number of hourly tweets change?<br/>    
+
+
+<h2>Data</h2> <body><li> Data</li>
+R Package <br/>
+<a href="http://cran.r-project.org/web/packages/streamR/streamR.pdf"> <span style="margin-right:10px;"> Stream </span></a> <br/>
+<a href="http://cran.r-project.org/web/packages/stringr/index.html"> <a href="http://cran.r-project.org/web/packages/plyr/index.html"> <span style="margin-right:10px;"> Stringr</span></a> <br/>
+<a href="http://cran.r-project.org/web/packages/plyr/index.html"> <span style="margin-right:10px;"> Plyr </span></a> <br/>
+
+
+Lexicon Sources<br/>
+<a href="http://jeffreybreen.wordpress.com/2011/07/04/twitter-text-mining-r-slides/
+"> <span style="margin-right:10px;">Twitter-text-mining-r-slides</span></a> <br/>
+<a href="http://mpqa.cs.pitt.edu/lexicons/"> <span style="margin-right:10px;">MPQA Subjectivity Lexicon </span></a> <br/>
+<a href="http://www.psychpage.com/learning/library/assess/feelings.html "> <span style="margin-right:10px;"> List of Feeling Words </span></a> <br/> 
+
+<a href="http://wndomains.fbk.eu/wnaffect.html"> <span style="margin-right:10px;"> WordNet&rsquo;s Affect Emotion Lists </span></a><br/>
+<a href="http://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html"> <span style="margin-right:10px;">Positive/Negative Lexicon developed in the paper by Hu and Liu, KDD-2004. </span></a> <br/>
+<li>Methods Results</li><br/>
+To collect tweets from Twitter, we used streamR in order to scrap local time, timezone, latitude and longitude of tweets as well as emotional content and tweeters&rsquo; information.<br/>
+Once we acquired the data, we processed tweets for emotionality using a modified function developed for sentiment analysis by Jeffery Breen called "score.sentiment".
+Based on the MPQA opinion Corpus&rsquo; Subjectivity Lexicon, WordNet&rsquo;s Affect Emotion List, a Lexicon developed by Hu and Liu, and a psychological list of &lsquo;feeling&rsquo; words, we defined &lsquosentiment score&rsquo; that the number of positive matching words subtracts the number of negative matching words in the given text. Then, we catagoried the emotional contents whether the emotion is positive, negative, or both. </body>
+
+<h2>Result</h2>
+<font color= white> <div class="figure">
+<center><img src="https://googledrive.com/host/0B9RVX9VwMYFzd3dWc1NhTWhTbHc/Rplot06.png"></center>
+<div style="height:5px; overflow:hidden;"></div>
+<center>The plot is hourly average sentiment score for all selected days. <br/> In these two plots, the most interesting day is Thanksgiving which shows significantly higher sentiment scores than the rest of the week. <br/>A general trend of sentiment content on Twitter seems to have two dips in sentiment score around 3 a.m and 6 p.m and a peak at 8 a.m. </center><div style="height:20px; overflow:hidden;"></div>
+
+<center> <img src="https://googledrive.com/host/0B9RVX9VwMYFzd3dWc1NhTWhTbHc/graph.jpg"> </center> 
+<div style="height:5px; overflow:hidden;"></div>
+<center>The plot illustrates variation in hourly average tweet sentiment scores throughout the day. <br> This is a consistent trend throughout the week. <br/> Tweet emotional content approaches zero at about 3 a.m, peaks at about 8 a.m. in the morning, and decreases in the afternoon. </center><div style="height:20px; overflow:hidden;"></div>
+
+<center><img src="https://googledrive.com/host/0B9RVX9VwMYFzd3dWc1NhTWhTbHc/Rplot05.png"></center>
+<div style="height:5px; overflow:hidden;"></div>
+<center>This box plot confirms that the hourly average sentiment score is higher and has a wider spread on Thanksgiving than any of the days in the week. <br/> Sentiment scores also seem to have a wider spread on both Saturday and Sunday. Not including Thursday, sentiment scores are similar to the mean and spread during weekdays.</center> <div style="height:20px; overflow:hidden;"></div>
+
+<center><img src="https://googledrive.com/host/0B9RVX9VwMYFzd3dWc1NhTWhTbHc/Rplot07.png"></center>
+<div style="height:5px; overflow:hidden;"></div>
+<center>The time series is plotted and some important events that influenced the emotional content on twitter are denoted. As we have seen before, the data shows a clear peak on Nov. 28th, Thanksgiving. Actor Paul Walker was injured and passed away on Nov. 30th. The plot shows a dip in average sentiment scores at that time. Moveover, on Tuesday, Dec. 3rd, the Yankees signed Jacoby Ellsbury and the sentiment score shows a decresing trend. </center> <div style="height:20px; overflow:hidden;"></div>
+<center><img src="https://googledrive.com/host/0B9RVX9VwMYFzd3dWc1NhTWhTbHc/Rplot09.png"></center>
+<div style="height:5px; overflow:hidden;"></div>
+<center>The plot depicts emotional valence of tweets over the 10-day period. The overall Tweet makeup appears to be consistently dominated by  neutral, non-emotional tweets over emotionally valenced tweets when considering each valence category separately.There is a slightly larger proportion of positively valenced tweets than negatively valenced ones, but the gap begins to close after Thanksgiving. <br/>
+Surprisingly, there is a noticeable proportion of tweets with mixed emotional content (i.e. there is both positively and negatively valenced content within a single tweet). This may be a valid pattern but also there is a possibility that these results are due to the particular lexicon and sentiment analysis approach used.</center>
+<div style="height:20px; overflow:hidden;"></div>
+<center><iframe width="640" height="480" src="http://www.youtube.com/embed/dyg3MPbFC50"</iframe></center>
+
+
+<center><img src="https://googledrive.com/host/0B9RVX9VwMYFzd3dWc1NhTWhTbHc/Rplot09.png"><center>
+<div style="height:5px; overflow:hidden;"></div>
+<center>The plot depicts emotional valence of tweets over the 10-day period. The overall Tweet makeup appears to be consistently dominated by  neutral, non-emotional tweets over emotionally valenced tweets when considering each valence category separately.There is a slightly larger proportion of positively valenced tweets than negatively valenced ones, but the gap begins to close after Thanksgiving. <br/>
+Surprisingly, there is a noticeable proportion of tweets with &lsquo;mixed&rsquo; emotional content (i.e. there is both positively and negatively valenced content within a single tweet). This may be a valid pattern but also there is a possibility that these results are due to the particular lexicon and sentiment analysis approach used.</center>
+ <div style="height:20px; overflow:hidden;"></div>
+
+<center><iframe width="640" height="480" src="http://www.youtube.com/embed/dyg3MPbFC50"</iframe></center>
+<center>The maps depict individual tweets and their emotional valence score on a color spectrum from red (negative) to yellow (neutral) to green (positive). Extreme outlier tweets, in terms of score, were excluded. Plotting the tweets and their sentiment on a map over time provides insight on where tweets are coming from and how the number of tweets per hour changes. It&rsquo;s clear that the tweets center around major cities (e.g., San Francisco, Los Angeles, Chicago, New York City, Dallas). Also, the number of tweets per hour fluctuates in a daily cycle; it dies down in early morning after midnight, grows throughout the morning, and grows again through evening. </center>
+ <div style="height:20px; overflow:hidden;"></div>
+</font>
+
+<p>
+<font color=white>
+<h2 align="left">Confounding Factors and Limitations</h2>
+<font size=4> <div align="left">Initially, we set out to investigate how emotions change throughout the course of a day or week. However, we were limited to about a week&rsquo;s worth of data (which still amounted to many megabytes of information), and the general trends were partially confounded by significant events. For example, Thanksgiving had an overwhelmingly positive effect on emotion, or at least emotion conveyed over Twitter. The other two causes of significant emotional change (Paul Walker&rsquo;s death, and the signing-on of Jacoby Ellsbury to the Yankees) were surmised by the timing of public news releases, and by reading some of the raw tweet text. <br/>
+
+Additionally, time zone designation was tricky to deal with. The tweets are grouped by their local times, which makes sense for analysis by time of day. However, significant news events will break almost instantaneously across the entire U.S., and thus their emotional impact will be captured across different local times. Additionally, there were some tweets found with impossible local times for tweets in the U.S. (likely because outside time zones were somehow set to those tweets), and thus some tweets in the data are incorrectly timed.</div> </font>
+
+<h2 align=left> Conclusion </h2>
+<font size=4> <div align="left">The emotional content of Twitter posts was found to follow a regular cyclical pattern throughout the course of day: most negative in the early morning, reaching a peak at around 8 am, decreasing through the afternoon, and increasing again in the late evening. However, emotional content was also highly sensitive to significant events, which confounded our findings. Our process is validated by the fact that the sentiment scores followed these significant events appropriately (e.g., Thanksgiving was overwhelmingly positive). Also, by geographic mapping, we found that tweets cluster around major cities. Further analysis can be done by teasing out the effect of significant events versus cyclical patterns, collecting data for longer periods of time, accounting for events that are instantaneous across time zones, and investigating the differences in emotional content between particular regions. Additionally, the link from emotional content of Twitter posts to peoples&rsquo; actual emotions over time should be further examined.</div> </font> </h5>
+</font> 
+</p>
+
+<hr>
+
+<p>
+<a href="https://docs.google.com/a/berkeley.edu/document/d/1lxUhn-gZzrnG5qi7a2pBSLbeVfud3NkmzPz7mTxtF-Y/export?format=pdf&id=1lxUhn-gZzrnG5qi7a2pBSLbeVfud3NkmzPz7mTxtF-Y&token=AC4w5ViYhnKmDY4iFXsybW6PEMeZVzlZaQ%3A1386656218062, https://docs.google.com/a/berkeley.edu/document/d/1lxUhn-gZzrnG5qi7a2pBSLbeVfud3NkmzPz7mTxtF-Y/edit">Report of Emotional Contents in Tweets </a>
+
+
+</div>
+</body>
+</font>
+</font>
+</html>
+
+

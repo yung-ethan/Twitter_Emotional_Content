@@ -1,0 +1,1 @@
+R CMD BATCH /accounts/class/s133b.2/s133b.2-25/finalproject/sentiment_analysis/sentiment_final.R &
