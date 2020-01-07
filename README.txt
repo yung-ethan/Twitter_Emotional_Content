@@ -1,7 +1,6 @@
-Emotional Content on Twitter - 01/07/2014
-Ethan Yung 
+Emotional Content on Twitter
 
-This is a college project I worked on with 4 other group members. Our objective was to perform sentiment analysis on Twitter posts to identify possible trends over time. We collected and analyzed a week's worth of Twitter posts. Details on research questions, our process, and findings are in the Final Project Report. The pdf contains the full report and detail, while the HTML is more brief, and perhaps more visually appealing.
+This was a university project. Our objective was to perform sentiment analysis on Twitter posts to identify possible trends over time. We collected and analyzed a week's worth of Twitter posts. Details on research questions, our process, and findings are in the Final Project Report. The pdf contains the full report and detail, while the HTML is more brief, and perhaps more visually appealing.
 
 All project code was written in R. The code in the "All R Scripts" directory works as follows (the sample files that were produced are included as reference):
 
